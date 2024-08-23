@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'string-calculator-tdd-kata';
+
+  add(numbers: string): number {
+    return 0;  // Hardcoded for passing first test
+  }
 }

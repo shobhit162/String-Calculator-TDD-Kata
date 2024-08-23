@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'string-calculator-tdd-kata';
 
   add(numbers: string): number {
-    return 0;  // Hardcoded for passing first test
+    if (numbers === "") return 0;
+    return parseInt(numbers); // it will handle the single number passed as a string
   }
 }

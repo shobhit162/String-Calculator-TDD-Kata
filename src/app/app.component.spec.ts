@@ -23,6 +23,12 @@ describe('StringCalculations', () => {
     const app = fixture.componentInstance;
     expect(app.add("")).toEqual(0);
   });
+
+  it('should return the number itself if only one number is provided', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("1")).toEqual(1);
+  });
 });
 
 /*

@@ -16,12 +16,19 @@ export class AppComponent {
     if (numbers.startsWith("//")) {   // supports different delimiters
       const parts = numbers.split('\n');
       const delimiterPart = parts[0];
+
       if(delimiterPart.startsWith("//[")) {
-        const delimiterContent = delimiterPart.slice(3, -1); // it will extract the delimiter inside [ ]
-        delimiter = new RegExp(delimiterContent.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); // it will escape special characters
+        const delimiterContent = delimiterPart
+          .slice(2) // it will remove initial "//"
+          .split('][') // it will split by "][" to handle multiple delimiters
+          .map(d => d.replace(/[\[\]]/g, '')) // it will remove square brackets
+          .map(d => d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) // it will escape special characters
+          .join('|'); // it will join them using OR operator for regex
+        delimiter = new RegExp(delimiterContent);
       } else {
         delimiter = new RegExp(delimiterPart.substring(2));
       }
+
       numbers = parts[1];
     }
 

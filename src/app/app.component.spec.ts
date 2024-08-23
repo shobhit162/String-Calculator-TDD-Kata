@@ -78,6 +78,11 @@ describe('String Calculations - New line, Delimiters and Negative numbers', () =
     const app = fixture.componentInstance;
     expect(app.add("//[***]\n1***2***3")).toEqual(6);
   });
+
+  it('should handle multiple delimiters', () => {
+    const app = new AppComponent();
+    expect(app.add("//[*][%]\n1*2%3")).toEqual(6);
+  });
 });
 
 /*

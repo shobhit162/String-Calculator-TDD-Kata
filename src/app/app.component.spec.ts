@@ -73,6 +73,11 @@ describe('String Calculations - New line, Delimiters and Negative numbers', () =
     expect(app.add("2,1001")).toEqual(2);
   });
   
+  it('should handle delimiters of any length', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("//[***]\n1***2***3")).toEqual(6);
+  });
 });
 
 /*

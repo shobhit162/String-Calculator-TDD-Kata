@@ -15,7 +15,13 @@ export class AppComponent {
 
     if (numbers.startsWith("//")) {   // supports different delimiters
       const parts = numbers.split('\n');
-      delimiter = new RegExp(parts[0].substring(2));
+      const delimiterPart = parts[0];
+      if(delimiterPart.startsWith("//[")) {
+        const delimiterContent = delimiterPart.slice(3, -1); // it will extract the delimiter inside [ ]
+        delimiter = new RegExp(delimiterContent.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); // it will escape special characters
+      } else {
+        delimiter = new RegExp(delimiterPart.substring(2));
+      }
       numbers = parts[1];
     }
 

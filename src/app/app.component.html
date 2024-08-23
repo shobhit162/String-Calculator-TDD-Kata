@@ -1,0 +1,20 @@
+<div style="text-align: center;">
+  <h1>String Calculator</h1>
+  
+  <div>
+    <label for="inputString">Enter numbers string:</label>
+    <input id="inputString" [(ngModel)]="inputString" placeholder="e.g., 1,2 or //[*][%]\n1*2%3">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button (click)="calculateSum()">Calculate</button>
+  </div>
+
+  <div *ngIf="result !== null" style="margin-top: 20px;">
+    <h3>Result: {{ result }}</h3>
+  </div>
+
+  <div *ngIf="errorMessage" style="margin-top: 20px; color: red;">
+    <h3>Error: {{ errorMessage }}</h3>
+  </div>
+</div>

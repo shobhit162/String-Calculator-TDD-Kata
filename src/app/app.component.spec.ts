@@ -35,6 +35,12 @@ describe('StringCalculations', () => {
     const app = fixture.componentInstance;
     expect(app.add("1,2")).toEqual(3);
   });
+
+  it('should return the sum of an unknown amount of numbers', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("1,2,3,4")).toEqual(10);
+  });
 });
 
 /*

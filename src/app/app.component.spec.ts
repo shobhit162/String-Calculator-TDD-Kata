@@ -59,6 +59,13 @@ describe('String Calculations - New line, Delimiters and Negative numbers', () =
     const app = fixture.componentInstance;
     expect(app.add("//;\n1;2")).toEqual(3);
   });
+
+  it('should throw an exception if negative numbers is passed', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(() => app.add("1,-2,3")).toThrow(new Error("negatives not allowed: -2"));
+    expect(() => app.add("1,-2,-4")).toThrow(new Error("negatives not allowed: -2,-4"));
+  });
 });
 
 /*

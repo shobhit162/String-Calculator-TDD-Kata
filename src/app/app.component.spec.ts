@@ -6,12 +6,24 @@ describe('AppComponent', () => {
     declarations: [AppComponent]
   }));
 
-  it('nothing', () => {
-    
+  it('should load the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
-
 });
 
+describe('StringCalculations', () => {
+  beforeEach(() => TestBed.configureTestingModule({
+    declarations: [AppComponent]
+  }));
+
+  it('should return 0 for an empty string', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("")).toEqual(0);
+  });
+});
 
 /*
 Steps of TDD Kata

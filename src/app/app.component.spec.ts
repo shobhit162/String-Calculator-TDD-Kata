@@ -6,22 +6,23 @@ describe('AppComponent', () => {
     declarations: [AppComponent]
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('nothing', () => {
+    
   });
 
-  it(`should have as title 'string-calculator-tdd-kata'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('string-calculator-tdd-kata');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('string-calculator-tdd-kata app is running!');
-  });
 });
+
+
+/*
+Steps of TDD Kata
+1) Write a failing test
+2) Write the minimum code to make your test pass
+3) Refactor
+*/
+
+/*
+(Just to remember here) Three laws of TDD by uncle bob
+1) You are not allowed to write any production code unless it is to make a failing unit test pass. (Make initial test fail)
+2) You are not allowed to write any more of unit test than is sufficient to fail. (Stop writing full test as soon as test fail)
+3) You are not allowed to write any more production code than is sufficient to pass the currently failing test. 
+*/

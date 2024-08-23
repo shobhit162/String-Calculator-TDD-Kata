@@ -53,6 +53,12 @@ describe('String Calculations - New line, Delimiters and Negative numbers', () =
     const app = fixture.componentInstance;
     expect(app.add("1\n2,3")).toEqual(6);
   });
+
+  it('should support different delimiters', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("//;\n1;2")).toEqual(3);
+  });
 });
 
 /*

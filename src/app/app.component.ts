@@ -10,7 +10,16 @@ export class AppComponent {
 
   add(numbers: string): number {
     if (numbers === "") return 0;
-    const numArr = numbers.split(/[\n,]/).map(num => parseInt(num)); // newline and comma-separated
-    return numArr.reduce((a, b) => a + b, 0); 
+
+    let delimiter = /[\n,]/;
+
+    if (numbers.startsWith("//")) {   // supports different delimiters
+      const parts = numbers.split('\n');
+      delimiter = new RegExp(parts[0].substring(2));
+      numbers = parts[1];
+    }
+
+    const numArray = numbers.split(delimiter).map(num => parseInt(num));
+    return numArray.reduce((a, b) => a + b, 0);
   }
 }

@@ -10,6 +10,7 @@ export class AppComponent {
 
   add(numbers: string): number {
     if (numbers === "") return 0;
-    return parseInt(numbers); // it will handle the single number passed as a string
+    const numArr = numbers.split(',').map(num => parseInt(num));
+    return numArr.reduce((a, b) => a + b, 0);  // it will handle 2 comma separated numbers
   }
 }

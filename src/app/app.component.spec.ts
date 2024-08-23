@@ -29,6 +29,12 @@ describe('StringCalculations', () => {
     const app = fixture.componentInstance;
     expect(app.add("1")).toEqual(1);
   });
+
+  it('should return the sum of two numbers separated by a comma', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("1,2")).toEqual(3);
+  });
 });
 
 /*

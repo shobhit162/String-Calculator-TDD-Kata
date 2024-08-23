@@ -24,6 +24,6 @@ export class AppComponent {
     if (negatives.length > 0) {
       throw new Error(`negatives not allowed: ${negatives.join(",")}`);
     }
-    return numArray.reduce((a, b) => a + b, 0);
+    return numArray.filter(num => num <= 1000).reduce((a, b) => a + b, 0);
   }
 }

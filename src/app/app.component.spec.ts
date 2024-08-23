@@ -66,6 +66,13 @@ describe('String Calculations - New line, Delimiters and Negative numbers', () =
     expect(() => app.add("1,-2,3")).toThrow(new Error("negatives not allowed: -2"));
     expect(() => app.add("1,-2,-4")).toThrow(new Error("negatives not allowed: -2,-4"));
   });
+
+  it('should ignore numbers greater than 1000', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("2,1001")).toEqual(2);
+  });
+  
 });
 
 /*

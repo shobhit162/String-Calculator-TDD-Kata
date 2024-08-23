@@ -13,7 +13,7 @@ describe('AppComponent', () => {
   });
 });
 
-describe('StringCalculations', () => {
+describe('String Calculations - Basic functionality', () => {
   beforeEach(() => TestBed.configureTestingModule({
     declarations: [AppComponent]
   }));
@@ -40,6 +40,18 @@ describe('StringCalculations', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.add("1,2,3,4")).toEqual(10);
+  });
+});
+
+describe('String Calculations - New line, Delimiters and Negative numbers', () => {
+  beforeEach(() => TestBed.configureTestingModule({
+    declarations: [AppComponent]
+  }));
+  
+  it('should handle new lines between numbers', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.add("1\n2,3")).toEqual(6);
   });
 });
 
